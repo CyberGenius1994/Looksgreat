@@ -11,7 +11,7 @@
     let page = 'Looksgreat';
 
     function scrolling() {
-        small = this.scrollTop > 700
+        small = this.scrollTop > this.offsetHeight - 50
     }
     onMount(()=>ready=true);
 
@@ -29,7 +29,9 @@
             <div class="sliderOuter">
                 <Slider/>
             </div>
-            <Projects/>
+            <div class="ProjectsInner">
+                <Projects/>
+            </div>
         </main>
     </div>
 {/if}
@@ -38,11 +40,11 @@
     .wrapper {
         background: #333333;
     }
-    .page {
-        width: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
+    /*.page {*/
+    /*    width: 100%;*/
+    /*    overflow-y: auto;*/
+    /*    overflow-x: hidden;*/
+    /*}*/
     .sliderOuter {
         width: 100%;
         height: 100vh;

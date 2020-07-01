@@ -173,6 +173,7 @@
         padding-top: 0;
         padding-bottom: 50px;
         text-transform: capitalize;
+        z-index: 999;
     }
     .infoDescription {
         font-size: 15px;

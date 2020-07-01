@@ -86,7 +86,6 @@
         },1000)
     }
 
-    $: console.log(currentNumber);
 </script>
 
 <div class="slider">

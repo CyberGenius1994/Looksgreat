@@ -11,7 +11,7 @@
     let small;
 
     function scrolling() {
-        small = this.scrollTop > 50
+        small = this.offsetTop > 1
     }
     onMount(()=>ready=true);
 
@@ -22,7 +22,7 @@
 </svelte:head>
 
 {#if ready}
-    <div class="wrapper">
+    <div class="wrapper" on:scroll={scrolling}>
         <Cursor/>
         <Header  {segment} {page} {small}/>
         <main class="page">
@@ -38,6 +38,7 @@
         height: 100vh;
     }
     .page {
+        height: 100vh;
         width: 100%;
         overflow-y: auto;
         overflow-x: hidden;

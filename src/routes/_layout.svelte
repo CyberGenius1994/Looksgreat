@@ -27,6 +27,7 @@
         height: 100vh;
         overflow-y: auto;
         overflow-x: hidden;
+        scroll-behavior: smooth;
     }
     @font-face {
         font-family: 'HelveticaNeueCyr';
