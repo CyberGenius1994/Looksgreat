@@ -14,8 +14,27 @@
     :global(::selection) {
         background: transparent;
     }
-    :global(a, button, body) {
+    :global(a, button, body, *) {
         cursor: none;
+    }
+    /* width */
+    :global(.wrapper::-webkit-scrollbar) {
+        width: 2px;
+    }
+
+    /* Track */
+    :global(.wrapper::-webkit-scrollbar-track) {
+        background: transparent;
+    }
+
+    /* Handle */
+    :global(.wrapper::-webkit-scrollbar-thumb) {
+        background: #F65E08;
+    }
+
+    /* Handle on hover */
+    :global(.wrapper::-webkit-scrollbar-thumb:hover) {
+        background: #555;
     }
     :global(body) {
         width: 100%;
@@ -36,10 +55,21 @@
         url('/fonts/hinted-HelveticaNeueCyr-Roman.woff') format('woff');
         font-weight: normal;
         font-style: normal;
+        font-display: swap;
     }
-	:global(main) {
+    @font-face {
+        font-family: 'HelveticaNeueCyr';
+        src: local('HelveticaNeueCyr-Roman'),
+        url('/fonts/HelveticaNeueCyr-Roman.woff2') format('woff2'),
+        url('/fonts/HelveticaNeueCyr-Roman.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    :global(main) {
 		position: relative;
-		max-width: 100%;
+		width: 100%;
 		background-color: transparent;
 		padding: 0;
 		margin: 0 auto;

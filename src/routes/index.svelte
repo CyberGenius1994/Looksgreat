@@ -37,14 +37,6 @@
 {/if}
 
 <style type="text/scss">
-    .wrapper {
-        background: #333333;
-    }
-    /*.page {*/
-    /*    width: 100%;*/
-    /*    overflow-y: auto;*/
-    /*    overflow-x: hidden;*/
-    /*}*/
     .sliderOuter {
         width: 100%;
         height: 100vh;

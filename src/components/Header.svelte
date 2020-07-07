@@ -55,7 +55,7 @@
         flex-basis: calc((100%/12)*2);
 	}
     .appHeader.smaller .logo{
-        width: 50%;
+        width: 63%;
     }
 	.logo {
         width: 100%;
@@ -110,7 +110,7 @@
         position: absolute;
         content: "";
         top: calc(100% - 9px);
-        left: 0;
+        left: 1px;
         width: 200%;
         height: 1px;
         text-transform: uppercase;

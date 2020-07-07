@@ -3,12 +3,13 @@
     import { spring } from 'svelte/motion';
     import { fly } from 'svelte/transition';
     import { cubicInOut } from 'svelte/easing';
-    let options = { duration: 1000, easing: cubicInOut };
+    let options = { duration: 500, easing: cubicInOut };
+    let optionsText = { duration: 150, easing: cubicInOut };
 
     let hovered = false;
 
     const coords = spring({x: 0, y: 0}, {
-        stiffness: 1, damping: 1
+        stiffness: 0.8, damping: 1
     });
 
     const coordsOuter = spring({x: 0, y: 0}, {
@@ -16,7 +17,7 @@
     });
 
     const coordsImage = spring({x: 0, y: 0}, {
-        stiffness: 0.3, damping: 0.9
+        stiffness: 0.4, damping: 0.7
     });
 
 
@@ -93,12 +94,15 @@
 </div>
 <div class="imageBlock" style="--mousei-x: {$coordsImage.x}px; --mousei-y:{$coordsImage.y}px;">
     {#if $imageStore.active}
-        <figure in:fly={{...options, opacity: 1, x: -400}} out:fly={{...options, opacity: 1, x: 400}} class="imageOuter">
-            <img src={$imageStore.image} alt={$imageStore.image}>
-        </figure>
+        <div class="imageBlockOuter">
+            <figure in:fly={{...options, opacity: 1, x: -400}} out:fly={{...options, opacity: 1, x: 400}} class="imageOuter">
+                <img src={$imageStore.image} alt={$imageStore.image}>
+            </figure>
+        </div>
+        <div class="imageCaption" in:fly={{...optionsText, opacity: 1}} out:fly={{...optionsText, opacity: 1}}>branding <br> 2018</div>
     {/if}
-
 </div>
+
 
 <style>
     :root {
@@ -137,12 +141,45 @@
         height: 480px;
         transform: translate3d(var(--mousei-x), var(--mousei-y), 0px) translate(-50%, -50%);
         pointer-events: none;
-        overflow: hidden;
+        overflow: visible;
         z-index: 111;
     }
-    .imageOuter {
+    .imageBlockOuter {
+        display: block;
+        overflow: hidden;
         width: 100%;
         height: 100%;
+    }
+    .imageOuter {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .imageOuter img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    .imageCaption {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        text-transform: capitalize;
+        line-height: 1;
+        font-size: 15px;
+        margin-left: 15px;
+    }
+    .imageBlockOuter + .imageCaption {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        color: #fff;
+        opacity: 1;
+        visibility: visible;
+
     }
     .circle-cursor.circle-cursor--inner {
         will-change: transform;

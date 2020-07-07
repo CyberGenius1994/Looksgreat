@@ -105,16 +105,16 @@
 
 <div class="projectsOuter" id="cases">
 	<ul class="filterList">
-		<li class="filterListItem">
+		<li class="filterListItem" transition:fade="{{delay: 500, duration: 1000, easing: cubicInOut}}" use:deferredTransition>
             <a href="#latest">Latest</a>
 		</li>
-        <li class="filterListItem">
+        <li class="filterListItem" transition:fade="{{delay: 500, duration: 1000, easing: cubicInOut}}" use:deferredTransition>
             <a href="#branding">Branding</a>
         </li>
-        <li class="filterListItem">
+        <li class="filterListItem" transition:fade="{{delay: 500, duration: 1000, easing: cubicInOut}}" use:deferredTransition>
             <a href="#web">Web</a>
         </li>
-        <li class="filterListItem">
+        <li class="filterListItem" transition:fade="{{delay: 500, duration: 1000, easing: cubicInOut}}" use:deferredTransition>
             <a href="#applications">Applications</a>
         </li>
 	</ul>
@@ -143,7 +143,7 @@
         position: sticky;
         top: 22px;
         left: 0;
-        margin: 100px 0 0 0;
+        margin: 22px 0 0 0;
         padding: 0;
         align-self: flex-start;
         list-style-type: none;
@@ -153,7 +153,7 @@
         display: inline-block;
         position: relative;
         top: 0;
-        font-size: var(--main-font-size);
+        font-size: 20px;
         font-family: 'HelveticaNeueCyr', sans-serif;
         font-weight: 400;
         text-decoration: none;
@@ -161,18 +161,18 @@
         text-transform: uppercase;
         color: var(--navigation-color);
         transition: color 300ms 300ms ease-in-out;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
     }
     :global(.filterListItem a::before) {
         display: block;
         position: absolute;
         content: "";
-        top: calc(100% - 9px);
-        left: 0;
+        top: calc(100% - 5px);
+        left: -100%;
         width: 200%;
         height: 1px;
         text-transform: uppercase;
-        background: linear-gradient(90deg, transparent 0%, transparent 50%, #6b6b6b 50%, #6b6b6b 100%);
+        background: linear-gradient(90deg, #6b6b6b 0%, #6b6b6b 50%, transparent 50%, transparent 100%);
         transition: left 500ms ease-in-out;
     }
     .filterListItem a:hover {
@@ -180,11 +180,11 @@
     }
     .filterListItem a:hover:before,
     :global(.filterListItem a.active:before) {
-        left: -100%;
+        left: 0;
     }
 	.projectsOuter {
         flex: 1 1 100%;
-        padding: 10px 0 0 calc((100% / 12) * 2 );
+        padding: 10px 0 10px calc((100% / 12) * 2 );
         background: #110f11;
         height: auto;
         display: flex;
@@ -205,7 +205,7 @@
         -webkit-text-stroke-width: 0;
         -webkit-text-stroke-color: #eaeaea;
         position: relative;
-        z-index: 110;
+        z-index: 100;
         cursor: none;
         text-transform: uppercase;
 	    letter-spacing: -0.05em;
@@ -214,6 +214,6 @@
     .projects a:hover {
         -webkit-text-stroke-width: 1px;
         -webkit-text-fill-color: transparent;
-	    z-index: 112;
+	    z-index: 999;
     }
 </style>

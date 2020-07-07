@@ -19,7 +19,7 @@ export function deferredTransition(node, args) {
             node.setAttribute('data-animation', node.style.animation);
             node.style.animation = 'none';
             window.observer.observe(node);
-        }, 100);
+        }, 1);
 
     }
 

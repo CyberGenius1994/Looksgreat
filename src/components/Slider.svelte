@@ -106,6 +106,7 @@
                     </figure>
                     <div class="slideInner">
                         <div class="slideContent">
+                            <p class="projectType">{slide.type}</p>
                             <h2 class="slideHeading">{slide.title}</h2>
                             <a href="/" data-cursor="View" data-image={slide.preview} class="slideText">{slide.description}</a>
                         </div>
@@ -250,20 +251,30 @@
         }
     }
     .next {
+        text-transform: uppercase;
         position: absolute;
         right: 20px;
-        top: 250px;
+        top: 50%;
+        transform: translateY(-800%);
         z-index: 90;
         background: transparent;
         border: none;
+        font-size: 15px;
+        font-weight: 400;
+        font-family: sans-serif;
     }
     .previous {
+        text-transform: uppercase;
         position: absolute;
         left: 20px;
-        top: 250px;
+        top: 50%;
+        transform: translateY(-800%);
         z-index: 90;
         background: transparent;
         border: none;
+        font-size: 15px;
+        font-weight: 400;
+        font-family: sans-serif;
     }
     .slideInner {
         width: 100%;
@@ -279,10 +290,8 @@
         z-index: 90;
     }
     .slideContent {
-        position: relative;
         height: 100%;
         width: 100%;
-        z-index: 10;
         display: flex;
         align-items: center;
         align-content: center;
@@ -297,12 +306,12 @@
     }
     :global(.slide.out .slideInner) {
         opacity: 0;
-        transition: all 0.5s 0s ease-in-out;
+        transition: all 0s ease-in-out;
 
     }
     :global(.slide.out + .current .slideInner) {
         opacity: 0!important;
-        transition: all 0.5s 0s ease-in-out;
+        transition: all 0.5s 1s ease-in-out;
     }
     :global(.slide.in .slideInner) {
         opacity: 0 !important;
@@ -321,13 +330,16 @@
         font-size: 154px;
         line-height: 153px;
         color: transparent;
-        font-family: sans-serif;
-        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-width: 0.3px;
         -webkit-text-stroke-color: #fff;
         white-space: nowrap;
         text-align: center;
         margin: 0;
         padding: 0;
+        font-weight: 400;
+        font-family: sans-serif;
+        position: relative;
+        z-index: 100;
     }
     .slideText {
         font-size: 154px;
@@ -336,9 +348,19 @@
         font-family: sans-serif;
         white-space: nowrap;
         text-align: center;
-        margin: -85px 0 0;
+        margin: -78px 0 0;
         padding: 0;
         text-decoration: none;
-        z-index: 9;
+        z-index: 115;
+    }
+    .projectType {
+        width: 100%;
+        padding: 0 20px 0 calc(((100% / 12) * 7) + 20px );;
+        margin: 0;
+        text-align: left;
+        font-size: 15px;
+        font-weight: 400;
+        position: relative;
+        z-index: 100;
     }
 </style>
